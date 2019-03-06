@@ -21,6 +21,12 @@ $("#newAnimalButton").click(function () {
     createButtons();
 })
 
+$("#newAnimalText").keydown(function (event) {
+    if (event.key === "Enter") {
+    event.preventDefault();
+    }
+})
+
 $(document).on("click", ".btn", function () {
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=0Aw07tlKAjEZKillKQGuY4jdWj9zFOXy&limit=10&q=" + $(this).val();
 
