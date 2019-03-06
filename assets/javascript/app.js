@@ -1,5 +1,6 @@
 topics = ["cat", "dog", "kitten", "puppy", "monkey", "snake", "cow", "horse", "zebra", "ant", "snail", "bird", "crocodile", "owl", "meercat", "sloth", "puma", "kangaroo", "koala"];
 
+var minHeight = 200;
 
 //Create initial button array
 function createButtons() {
@@ -37,7 +38,13 @@ $(document).on("click", ".btn", function () {
             newGifDiv.append(newGif);
             newGifDiv.append(rating);
             $("#gifs-go-here").append(newGifDiv);
+
+            if (gifArray[i].images.fixed_width.height > minHeight) {
+                minHeight = gifArray[i].images.fixed_width.height;
+            }
         }
+        $(".card").css("height", minHeight + "px");
+        minHeight = 200;
     })
 
 })
